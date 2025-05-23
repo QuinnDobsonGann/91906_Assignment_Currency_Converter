@@ -1,6 +1,6 @@
 from tkinter import *
 from functools import partial  # to prevent unwanted windows
-import conversion_rounding as cr
+import conversion_roundingv2 as cr
 from datetime import date
 
 

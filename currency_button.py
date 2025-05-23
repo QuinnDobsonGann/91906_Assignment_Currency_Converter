@@ -1,7 +1,9 @@
 from tkinter import *
 
-def currency_action():
-    print("Test click")
+
+def currency_click_test():
+    print("Test")
+
 
 root = Tk()
 root.title("Currency Button")
@@ -14,7 +16,7 @@ currency_button = Button(
     fg="#FFFFFF",
     font=("Arial", 12, "bold"),
     width=12,
-    command=currency_action
+    command=currency_click_test
 )
 currency_button.grid(padx=5, pady=5)
 

@@ -312,7 +312,7 @@ class HistoryExport:
         month = today.strftime("%m")
         year = today.strftime("%Y")
 
-        file_name = f"Currencies_{year}_{month}_{day}"
+        file_name = f"Temperature_{year}_{month}_{day}"
 
         # edit label so users know that their export has been done
         success_string = ("Export Successful! The file is called"

@@ -1,6 +1,6 @@
 from tkinter import *
 from functools import partial  # to prevent unwanted windows
-import conversion_rounding as cr
+import conversion_roundingv2 as cr
 from datetime import date
 
 
@@ -28,7 +28,9 @@ class Converter:
         instructions = (
             "Please enter a Currency below and then press "
             "one of the buttons to convert it from NZD "
-            "to either USD, CAD and GBP. \n\n NZD is New Zealand Dollar, "
+            "to either USD, CAD and GBP. Can only convert above the number of 1, maximum input of digits is 7. "
+            "Converts your calculation to two decimal places. \n\n"
+            "NZD is New Zealand Dollar,"
             "USD is United States Dollar, CAD is Canadian Dollar and "
             "GBP is Great British Pound."
         )
@@ -160,10 +162,12 @@ class DisplayHelp:
         # help / info text
         help_text = "To use the program, simply enter the currency " \
                     "you wish to convert, starting at the default currency NZD, and then choose to convert " \
-                    "to either USD,CAD, GBP.\n\nNZD is New Zealand Dollar, USD is United States Dollar and CAD is "\
-                    "Canadian Dollar. \n\n" \
+                    "to either USD,CAD, GBP.\n\nNZD is New Zealand Dollar, USD is United States Dollar and CAD is " \
+                    "Canadian Dollar. Can only convert above the number of 1, maximum input of digits is 7. Rounds " \
+                    "answer to two decimal places. \n\n" \
                     "To see your calculation history and export it to a text file, please click the 'History / " \
-                    "Export' button."
+                    "Export' button.\n\n You can open multiple History / Export windows when you have done the 5 max" \
+                    "calculations per window. You can then export multiple windows with your 5 calculations."
 
         self.help_text_label = Label(self.help_frame,
                                      text=help_text, wraplength=350,
@@ -216,6 +220,7 @@ class HistoryExport:
         newest_first_string = ""
         newest_first_list = list(reversed(calculations))
 
+        # calculations(max is 5 for export)
         if len(newest_first_list) <= 5:
             for item in newest_first_list[:-1]:
                 newest_first_string += item + "\n"
@@ -247,6 +252,7 @@ class HistoryExport:
         self.history_button_frame = Frame(self.history_box)
         self.history_button_frame.grid(row=4)
 
+        # export button, use to close
         button_details_list = [
             ["Export", "#004C99", lambda: self.export_data(calculations), 0, 0],
             ["Close", "#666666", partial(self.close_history, partner), 0, 1],
