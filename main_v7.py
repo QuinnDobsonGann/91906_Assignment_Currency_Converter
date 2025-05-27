@@ -4,6 +4,7 @@ import conversion_roundingv2 as cr
 from datetime import date
 
 
+# main GUI
 class Converter:
     """
     Currency conversion tool (NZD to either USD, CAD and GBP)
@@ -90,6 +91,7 @@ class Converter:
         # keep help button ref for enabling later
         self.to_help_button = self.button_ref_list[3]
 
+    # checks the correct inputs
     def check_currency(self, currency_target):
         to_convert = self.currency_entry.get()
         self.answer_error.config(fg="#004C99", font=("Arial", "13", "bold"))
@@ -141,6 +143,7 @@ class Converter:
         HistoryExport(self, self.all_calculations_list)
 
 
+# shows help GUI when clicked
 class DisplayHelp:
 
     def __init__(self, partner):
